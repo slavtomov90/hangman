@@ -2,19 +2,38 @@
 <html ng-app="hangman">
 	<head>
 		<title>HangMan</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	</head>
+	<body>
+		
+		<div class="container" ng-controller="HangManController">
+			<h1>HangMan</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Round Number</th>
+						<th>Won</th>
+						<th>Letters Used</th>
+					</tr>	
+				</thead>
+				<tbody>
+					<tr ng-repeat="round in history">
+						<td>{{round.name}}</td>
+						<td>{{round.win}}</td>
+						<td>{{round.lettersUsed}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 		<script src="/js/controllers.js"></script>
-	</head>
-	<body ng-controller="HangManController">
-		<h1>HangMan</h1>
-		
-		<ul>
-			<li ng-repeat="round in rounds">
-				<span>{{ round.name }}</span>
-				<p>{{ round.win }}</p>
-				<p>{{ round.lettersUsed }}</p>
-			</li>
-		</ul>
-
 	</body>
 </html>
